@@ -92,6 +92,7 @@ def Nurse(request):
             status = status,
             doctor = doctor,
         )
+        new.patient.Nurse_Checked=True
         new.save()
         return redirect('Nurse')
     context = {'patients': patients ,'doctors':doctors}
@@ -110,6 +111,6 @@ def add_drug(request):
 
 def Doctor(request,pk):
     doctor = Doctors.objects.get(id=pk)
-    patients = Nurses.objects.filter(doctor=doctor)
-    context = {'doctor':doctor,'patients':patients}
+    patients = Nurses.objects.get(doctor=doctor)
+    context = {'doctor': doctor, 'patients': patients}
     return render(request,'doctor.html',context)
