@@ -109,7 +109,7 @@ def add_drug(request):
     return render(request,'add_drug.html',dictionary)
 
 def Doctor(request,pk):
-    doctor = Doctors.objects.filter(Room=pk)
+    doctor = Doctors.objects.get(id=pk)
     patients = Nurses.objects.filter(doctor=doctor)
     context = {'doctor':doctor,'patients':patients}
     return render(request,'doctor.html',context)
