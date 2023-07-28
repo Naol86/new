@@ -1,0 +1,27 @@
+<h1>
+    hello nurses
+</h1>
+<form method="POST" action="{% url 'Nurse' %}">
+    {% csrf_token %}
+    <h3>
+        <div>
+            <label for="patients">Patient :</label>
+            <select name="patient">
+                <option>{{patients}}</option>
+            </select>
+        </div>
+        <div>
+            <label for="status">Status : </label>
+            <input type="text" name="status" size="60" />
+        </div>
+        <div>
+            <label for="docter">Doctors :</label>
+            <select name="doctor">
+                {% for doctor in doctors %}
+                <option>{{doctor}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </h3>
+    <input type="submit" value="Submit" />
+</form>

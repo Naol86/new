@@ -1,0 +1,21 @@
+
+<div>
+    <h1>
+        welcome to our hospital
+    </h1>
+</div>
+
+<div>
+    <form method="GET" action="{% url 'Home' %}">
+        <input type="text" placeholder="Search for patient...." name="search" />
+    </form>
+</div>
+<div>
+    {{patient_count}} result
+    {% for patient in patients %}
+    <p>
+        {{patient}}
+    </p>
+    {% endfor %}
+</div>
+<a href="{% url 'register-patient' %}" >register</a>
